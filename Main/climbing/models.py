@@ -24,7 +24,7 @@ class Mountains(models.Model):
 
 # Post된 산 글 모델
 class PostMountain(models.Model):
-    imgpath = models.CharField(max_length=50, default='')
+    imgpath = models.CharField(max_length=100, default='')
     date = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=30)
     body = models.TextField(max_length=200)
