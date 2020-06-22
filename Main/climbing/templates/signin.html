@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet">
+    <title>signin</title>
+    <link rel="stylesheet" href={% static 'css/signin.css' %}>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="logo">Climbing</h1>
+    </div>
+    <div class="container">
+        <div class="signup-text">Sign in</div>
+        <div class="signup-box">
+            <input type="text" name="username" placeholder="Username" id="username"><br>
+            <input type="password" name="password" placeholder="password" id="password"><br>
+
+            <button>Sign In</button>
+            <p id="signup-btn">Signup</p>
+
+
+        </div>
+
+
+    </div>
+    <div class="footer">
+        <p>Copyright 2020 Climbing All Right Reserved</p>
+    </div>
+</body>
+
+</html>

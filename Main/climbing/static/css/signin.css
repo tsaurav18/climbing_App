@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    box-sizing: border-box;
+
+
+}
+
+body {
+    background-color: #414345
+}
+.header{
+    background-color: darkslategrey;
+    height: 57px;
+    line-height: 57px;
+    width: 103%;
+    text-align: center;
+    color: white;
+}
+
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -170px;
+    margin-top: -205px;
+    background-color: black;
+    width: 340px;
+    height: 410px;
+    border-radius: 3px;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.signup-box {
+    margin: 22px 39px;
+
+}
+
+.signup-text {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+    font-family: 'Baloo 2', cursive;
+    color: white;
+    margin-top: 54px;
+}
+
+input {
+    border: none;
+    border-bottom: solid white;
+    font-size: medium;
+    padding: 10px;
+    margin: 8px 0px;
+    border-radius: 10px;
+    color: black;
+    outline: none;
+    width: 263px;
+
+}
+
+input:hover {
+    border-bottom: white;
+}
+
+button:hover {
+    border-bottom: white;
+}
+
+.dob {
+    width: 84px;
+    font-size: 14px;
+
+}
+
+button {
+    border: none;
+    padding: 13px;
+    width: 46%;
+    border-radius: 14px;
+    background-color: white;
+    outline: none;
+    border-bottom: solid white;
+    margin: 12px 74px;
+    font-size: 18px;
+
+
+}
+
+button:hover {
+    background: rgb(233, 181, 233);
+    cursor: pointer;
+    color: white;
+
+}
+
+#gender {
+    border: none;
+    padding: 4px;
+    margin-top: 10px;
+    border-radius: 10px;
+    outline: none;
+}
+#signup-btn{
+    border: none;
+    padding: 13px;
+    width: 32%;
+    border-radius: 14px;
+    background-color: #414345;
+    margin: 14px 203px;
+    text-align: center;
+    color: white;
+    font-size: 19px;
+
+}
+#signup-btn:hover{
+    background-color: white;
+    color:black
+
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(232, 225, 227);
+    color: black;
+    text-align: center;
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+}
