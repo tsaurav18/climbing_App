@@ -19,12 +19,13 @@
     <div class="container">
         <div class="signup-text">Sign in</div>
         <div class="signup-box">
-            <input type="text" name="username" placeholder="Username" id="username"><br>
-            <input type="password" name="password" placeholder="password" id="password"><br>
 
-            <button>Sign In</button>
-            <p id="signup-btn">Signup</p>
-
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Sign In"/>
+            </form>
+            <a id="signup-btn" href="/signup">Signup</a>
 
         </div>
 
