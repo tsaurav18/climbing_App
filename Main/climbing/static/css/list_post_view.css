@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-box {
+    background-image: url("img/bukhansan.jpg");
+    height: 250px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    padding: 0 10px;
+    height: 75px;
+}
+
+.logo {
+    color: black;
+    font-size: 38px;
+    font-family: verdana;
+    float: left;
+    line-height: 80px;
+    padding-left: 48px;
+    font-weight: 500;
+    opacity: 1;
+}
+
+.image-upload {
+    text-align: center;
+    width: 367px;
+    display: inline-block;
+    font-size: 66px;
+    
+}
+
+.content-box {
+    margin: 10px 30px;
+    overflow: hidden;
+
+}
+
+.row-box {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 9px;
+    font-size: 21px;
+
+}
+
+.row-info {
+    font-size: 17px;
+    float: right;
+    clear: both;
+    padding: 10px;
+}
+
+.content {
+    clear: both;
+    border: 1px solid black;
+    margin-top: 56px;
+    border-radius: 8px
+}
+
+.wrapper-box {
+    margin-top: 24px;
+    font-size: 18px;
+
+}
+
+.container-rateme {
+    float: left;
+
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+.message {
+    float: right;
+
+    font-size: 21px;
+
+}
+
+.btn1 {
+    margin: 0px 5px;
+    background-color: rgb(172, 166, 166);
+    padding: 0px 9px;
+    border: none;
+    height: 41px;
+    line-height: 21px;
+    color: white
+}
+
+.btn1:hover {
+    cursor: pointer;
+    background-color: rgb(50, 47, 47);
+
+}

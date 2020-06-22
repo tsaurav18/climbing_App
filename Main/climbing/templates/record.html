@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <title>record</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/record.css">
+</head>
+
+
+<body>
+    <div class="container-box">
+        <div class="header">
+            <span><i class='fas fa-angle-left'
+                    style='font-size:70px; float:left; color:black,inline-block;line-height:80px;'></i></span>
+            <h1 class="logo">Climbing</h1>
+        </div>
+        <button class="button start-btn">등산 시작</button>
+        <!-- display popup-box content -->
+        <div class="modal" id="modal-wrapper">
+            <form action="action.jsp" method="post" id="popup-form" class="animate modal-content">
+                <span class="close" id = "close_modal"title="close popup">&times;</span>
+                <input type="text" id ="mountain_name"class="form-input1" placeholder="산 이름" />
+                <input type="text" id ="course_name"class="form-input1" placeholder="코스 이름" />
+                <input type="text" id ="taken_time"class="form-input1" placeholder="소요 시간" />
+                <div id="start" class="post-btn1">Start</div>
+                <div id="modal-cancel-btn" class="post-btn2">cancel</div>
+        </div>
+        <!-- toggler comeout from bottom -->
+        <div class="bottom-container animate-btn">
+            <span class="close1 ">&times;</span>
+            <!-- <div class="time adjust "></div> -->
+            <section class="buttons-wrapper" id="stopWatch">
+                <p id="timer"> 00:00:00 </p>
+                <div class="bottom-start buttons1" id="start1" onclick="startMyTime()"> <i class="fa fa-play-circle"
+                        style="font-size: 90px;"></i> </div>
+                <div class="bottom-pause buttons1" id="pause1" onclick="pauseMyTime()"> <i class="fa fa-pause-circle"
+                        style="font-size: 90px;"></i></div>
+                <div class="bottom-resume buttons1" id="resume1" onclick="resumeMyTime()"><img src="img/resume.png"></div>
+                <div class="bottom-stop buttons1" id="stop1" style="font-size: 90px;"> <i class="fa fa-stop-circle"></i>
+                </div>
+                <p id="fulltime"> </p>
+            </section>
+        </div>
+    </div>
+    <div class="old-record">기존 기록 이력</div>
+    <form action="action.jsp" method="post">
+        <div class="form-tag">
+            <input type="text" class="form-input" placeholder="산 이름" />
+            <input type="text" class="form-input" placeholder="코스 이름" />
+            <input type="text" class="form-input" placeholder="소요 시간" />
+        </div>
+        <div class="post-btn">Post</div>
+
+    </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.button').on('click', function () {
+                $("#modal-wrapper").css('display', 'block')
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.close').on('click', function () {
+                $("#modal-wrapper").css('display', 'none')
+                document.getElementById("mountain_name").value="";
+                document.getElementById("course_name").value="";
+              document.getElementById("taken_time").value="";
+                
+            })
+        });</script>
+    <script>$(document).ready(function () {
+            $("#modal-cancel-btn").click(function () {
+               
+                $("#modal-wrapper").css('display', 'none')
+                document.getElementById("mountain_name").value="";
+                document.getElementById("course_name").value="";
+              document.getElementById("taken_time").value="";
+                
+            })
+        })</script>
+
+    <script>
+        $(document).ready(function () {
+            $('.post-btn1').on('click', function () {
+                $('.bottom-container').css('display', 'block')
+                $('#modal-wrapper').hide();
+               
+               
+
+            });
+        }); </script>
+    <script>
+        $(document).ready(function () {
+            $('.close1').on('click', function () {
+                $('.bottom-container').css('display', 'none')
+                var fulltimeText = document.getElementById("fulltime");
+                
+                fulltimeText.innerText = "";
+               
+            });
+        });
+    </script>
+    <!-- javascript code for clock -->
+
+    <script>
+        var count = 0; var clearTime; var seconds = 0, minutes = 0, hours = 0; var clearState; var secs, mins, gethours;
+        function startWatch() {
+            if (seconds === 60) { seconds = 0; minutes = minutes + 1; }
+            mins = (minutes < 10) ? ('0' + minutes + ': ') : (minutes + ': ');
+            if (minutes === 60) { minutes = 0; hours = hours + 1; } gethours = (hours < 10) ? ('0' + hours + ': ') : (hours + ': '); secs = (seconds < 10) ? ('0' + seconds) : (seconds);
+            var x = document.getElementById("timer"); x.innerHTML = gethours + mins + secs;
+            seconds++;
+            clearTime = setTimeout("startWatch( )", 1000);
+        }
+        function reset() {
+            var val = document.getElementById('timer');
+            val.innerHTML = "00:00:00"
+        }
+
+        function startTime() {
+            if (seconds === 0 && minutes === 0 && hours === 0) {
+                startWatch();
+            }
+        }
+
+        function stopTime() {
+            if (seconds !== 0 || minutes !== 0 || hours !== 0) {
+                var fulltime = document.getElementById("fulltime");
+                fulltime.style.display = "block";
+                var time = gethours + mins + secs;
+                fulltime.innerHTML = 'Fulltime: ' + time;
+                seconds = 0; minutes = 0; hours = 0;
+                secs = '0' + seconds; mins = '0' + minutes + ': '; gethours = '0' + hours + ': ';
+                clearTimeout(clearTime);
+
+            }
+        }
+    </script>
+    <script>
+        var boom = false;
+        var boom2 = 0;
+        var flag = true;
+        function startMyTime() {
+            if (!boom && flag == true) {
+                startTime();
+                boom = true;
+            }
+            else if (boom && boom2 == 0) {
+                startTime();
+                boom = true;
+                boom2 = 0
+            }
+            else {
+                $("#start1").click(function (e) {
+                    e.preventDefault();
+                    boom2 = 1;
+                })
+            }  }
+        function pauseMyTime() {
+            if (boom) {
+                value = timer.textContent;
+                clearTimeout(clearTime);
+                boom = false;
+                boom2 = 1
+            }
+            else {
+                $("#pause1").click(function (e) {
+                    e.preventDefault();
+                    boom2 = 1
+                })
+            }
+
+        }
+        function resumeMyTime() {
+            if (!boom && boom2 == 1) {
+                startWatch();
+                boom = true;
+                boom2 = 0;
+            } else {
+                $("#resume1").click(function (e) {
+                    e.preventDefault();
+
+                    boom2 = 0
+                })
+
+            }
+        }
+
+    </script>
+
+    <script>
+        // stopTime();
+        $(document).ready(function () {
+            $('.bottom-stop').on('click', function () {
+                stopTime();
+                reset();
+            });
+        });  </script>
+
+<script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+</body>
+
+</html>

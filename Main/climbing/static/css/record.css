@@ -1,0 +1,251 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: rgb(187, 187, 186)
+}
+
+.container-box {
+    padding: 0px 10px;
+
+}
+
+.header {
+    padding: 0 10px;
+    height: 75px;
+}
+
+.logo {
+    color: black;
+    font-size: 38px;
+    font-family: verdana;
+    float: left;
+    line-height: 80px;
+    padding-left: 48px;
+    font-weight: 500;
+    opacity: 1;
+}
+
+.start-btn {
+    font-size: 30px;
+    text-align: center;
+    margin: 47px auto;
+    background-color: rgb(163, 177, 240);
+    padding: 82px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.4);
+
+}
+
+.model-contnet {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 96%;
+    margin: 264px 0px;
+    height: 40%;
+    padding: 52px 15px;
+}
+
+#popup-form {
+    margin-top: 187px;
+    padding: 35px 0px;
+}
+
+.form-input1 {
+    margin: 10px auto;
+    width: 94%;
+    border: 1px solid rgb(128, 125, 125);
+    border-radius: 5px;
+    outline: none
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+    z-index: 3
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(11, 10, 10);
+    cursor: pointer
+}
+
+.animate {
+    animation: zoom 0.1s
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.post-btn1 {
+    text-align: center;
+    margin: 6px 7px;
+    background-color: rgb(87, 87, 247);
+    color: white;
+    float: right;
+    padding: 10px;
+}
+
+.post-btn1:hover,
+.post-btn2:hover {
+    background-color: rgb(197, 197, 226);
+}
+
+.post-btn2 {
+    text-align: center;
+    margin: 0px 10px;
+    background-color: rgb(87, 87, 247);
+    color: white;
+    margin: 6px 7px;
+    float: left;
+    padding: 10px;
+}
+
+.old-record {
+    border: 1px solid rgb(230, 213, 213);
+    text-align: center;
+    margin: 0px 79px;
+    padding: 10px;
+    border: none;
+    background: rgb(87, 87, 247);
+    color: white
+}
+
+
+.form-tag {
+    margin-bottom: 20px
+}
+
+
+.form-input {
+    margin: 10px;
+    width: 94%;
+    border: 1px solid rgb(50, 47, 47);
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    padding: 10px;
+
+
+}
+
+.post-btn {
+    text-align: center;
+    margin: 0px 10px;
+    background-color: rgb(87, 87, 247);
+    color: white;
+    width: 88px;
+    float: right;
+    padding: 10px;
+}
+
+.post-btn:hover {
+    cursor: pointer;
+    background-color: rgb(50, 47, 47);
+
+}
+.bottom-container{
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    margin-top:133px;
+    color:white;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display:none;
+    background: rgb(141, 140, 140);
+    border-top-left-radius:214px ;
+    border-top-right-radius:214px ;
+    animation:mymove 1s;}
+/* .animate-btn {
+    animation:mymove 10s infinite;
+} */
+@keyframes mymove {
+    from {top: 800px;}
+    to {bottom: 0px;}
+  }
+
+  .adjust{
+     
+      margin: 58px auto;
+      
+      text-align: center;
+     
+  }
+
+  .close1 {
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 5;  
+    text-align: center; 
+    display: inline-block;
+    width: 100%;
+    
+}
+.close1:hover{
+    color:black
+}
+.buttons-wrapper{
+    margin: 80px;
+    text-align: center;
+   
+}
+.buttons1{
+    display: inline-block
+}
+p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 42px;
+}
+#resume1{
+   
+    border: solid white;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    top: -28px;
+
+}
+img{
+
+width:81px
+  
+}

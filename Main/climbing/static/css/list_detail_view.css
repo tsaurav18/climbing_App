@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-box {
+    background-image: url("img/bukhansan.jpg");
+    height: 250px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    padding: 0 10px;
+    height: 75px;
+}
+
+.logo {
+    color: black;
+    font-size: 38px;
+    font-family: verdana;
+    float: left;
+    line-height: 80px;
+    padding-left: 48px;
+    font-weight: 500;
+    opacity: 1;
+}
+
+.content-box {
+    margin: 10px 30px;
+    overflow: hidden;
+
+}
+
+.row-box {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 9px;
+    font-size: 21px;
+
+}
+
+.row-info {
+    font-size: 17px;
+    float: right;
+    clear: both
+}
+
+.date {
+    float: right;
+    clear: both;
+    font-size: 12px;
+}
+
+.content {
+    clear: both;
+    margin-top: 66px;
+}
+
+.wrapper-box {
+    margin-top: 24px;
+    font-size: 25px;
+
+}
+
+.container-rateme {
+    float: left;
+    width: 185px;
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+.message {
+    float: right;
+    width: 48px;
+    font-size: 35px;
+}
