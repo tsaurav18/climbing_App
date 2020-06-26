@@ -37,6 +37,7 @@ class MyList(models.Model):
     m_name = models.CharField(max_length=20)
     course = models.CharField(max_length=20, null=True)
     time = models.CharField(max_length=10)
+    date = models.DateTimeField(auto_now_add=True)
     score = models.IntegerField(default=1)
 
 
