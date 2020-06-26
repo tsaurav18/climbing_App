@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from .forms import *
 from .models import *
 
@@ -34,6 +33,7 @@ def signin(request):
         form = SigninForm()
         return render(request, 'signin.html', {'form': form})
 
+
 # 메인 페이지
 def main(request):
     posts = PostMountain.objects.get(id=1)
@@ -47,9 +47,11 @@ def main(request):
 def postlist_main(request):
     first_posts = PostMountain.objects.get(id=1)
     second_posts = PostMountain.objects.get(id=2)
+    others = PostMountain.objects.order_by('date')
     context = {
         'mountain_of_month': first_posts.imgpath,
-        'recomend_mountain': second_posts.imgpath
+        'recomend_mountain': second_posts.imgpath,
+        'others': others[2:]
     }
     return render(request, 'list_main.html', context)
 
@@ -67,16 +69,30 @@ def postlist_post(request):
 
 # 등산 기록 페이지
 def record(request):
-    return render(request, 'record.html')
+    if request.method == 'POST':
+        form = RecordForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('mylist_main')
+        else:
+            return redirect('error')
+    else:
+        form = RecordForm()
+        return render(request, 'record.html', {'form': form})
+    # return render(request, 'record.html')
 
 
 # 개인 등산 목록 페이지
 def mylist_main(request):
-    return render(request, 'mylist.html')
+    mylist = MyList.objects.order_by('date')
+    context = {
+        'mylist': mylist
+    }
+    return render(request, 'mylist.html', context)
 
 
 # 개인 등산 상세 페이지
-def mylist_detail(request):
+def mylist_detail(request, id):
     return render(request, 'mylist_detail.html')
 
 
