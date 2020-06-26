@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-   <link rel="stylesheet" href="css/list_main.css">
+   <link rel="stylesheet" href={% static "css/list_main.css" %}>
    
 <body>
 
@@ -30,12 +31,11 @@
     </div>
     <div class="list">
         <ul>
-            <li class="list_class" id="list_item">This is list item</li>
-            <li class="list_class" id="list_item">This is list item</li>
-            <li class="list_class" id="list_item">This is list item</li>
-            <li class="list_class" id="list_item">This is list item</li>
-            <li class="list_class" id="list_item">This is list item</li>
-
+            <img src="{{ mountain_of_month }}" alt="이달의 산" width="300" height="300"><br>
+            <img src="{{ recomend_mountain }}" alt="추천하는 산" width="300" height="300"><br>
+            {% for p in others %}
+                <li class="list_class" id="list_item">{{ p.name }} {{ p.date }}</li>
+            {% endfor %}
         </ul>
     </div>
     <div class="page-box">
