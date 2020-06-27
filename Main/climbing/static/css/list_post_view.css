@@ -5,7 +5,7 @@
 }
 
 .container-box {
-    background-image: url("img/bukhansan.jpg");
+
     height: 250px;
     width: 100%;
     background-repeat: no-repeat;
@@ -37,7 +37,17 @@
     font-size: 66px;
     
 }
-
+input[type="text"]{
+    border:none;
+    outline: none;
+    border-bottom: 1px solid black;
+     text-align: center;
+     margin-left: 69px;
+     width: 57%;       
+    
+    
+    
+}
 .content-box {
     margin: 10px 30px;
     overflow: hidden;

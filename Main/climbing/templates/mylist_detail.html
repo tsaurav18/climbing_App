@@ -1,229 +1,116 @@
-<!DOCTYPE html>
 <html>
+
 <head>
 	<title>CLIMBLING</title>
 	<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0" charset="utf-8">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-	<style type="text/css">
-		*{}
-		body {
-			margin: 0;
-		}
-		a {
-    	text-decoration: none;
-    	color: #000;
-   		}
-		.section {
-			float: left;
-			width: 100%;
-		} 
-		#header-area{
-			position: absolute;
-			background-color: white;
-			height: 40%;
-			border-bottom: 1px solid #DDD;
-			z-index: 1;
-		}
-		#header-area h3{
-			margin: 3px 0px;
-			text-align: center;
-			color: #000;
-		}
-		.image{
-			background-image: url('mountain.jpg');
-			height: 100%;
-			width: 150%;
-			background-repeat: no-repeat;
-		}
-		.back_botton{
-			position: absolute;
-			left: 0px;
-			top: 0px;
-			background-repeat: no-repeat;
-			z-index: 2;
-			font-size: 20px;
-		}
-		.box1{
-			width: 50%;
-			height: 30px;
-			position: absolute;
-			left: 25%;
-			top: 1.6%;
-		}
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/mylist_detail.css">
 
-		#menu-area {
-			position: absolute;
-			border-top: 1px solid #FFF;
-			border-bottom: 1px solid #FFF;
-		}
-		#contents-area {
-			float: left;
-			width: 100%;
-			margin: 2.5% 1.6%;
-		}
-		
-		
-		/*.image:before {
-			content: "";
-			display: block;
-			width: 150%;
-			padding-bottom: 40%;
-		}*/
-		
-		.left{
-			float: left;
-		}
 
-		.right{
-			float: right;
-		}
 
-		.center{
-			text-align: 
-		}
-	
-		
-		.box{
-			float:left;
-			width:50%;
-			padding: 1%; 
-			box-sizing: border-box;
-		}
 
-		.box2{
-			float:left;
-			width:30%;
-			padding: 1%; 
-			box-sizing: border-box;
-		}
+</head>
 
-		.box3{
-			float:left;
-			width:30%;
-			padding: 1%; 
-			box-sizing: border-box;
-			text-align: 
-			line-height:100px;	
-			}
-
-		.grid1{
-			float: left;
-			width:100%;
-			height: auto;
-			background-size: cover;
-		}
-		.grid{
-			float:left;
-			width:100%;
-			border-bottom: 1px solid #DDD;
-		}
-		.a {
-			font-size: 2.2em;
-			font-weight: bold;
-			text-align: center;
-			line-height: 5%;
-			color: #000;
-			margin: 0;
-		}
-		#footer-area {
-			
-			padding: 1% 0%;
-			background-color: #EEE;
-			text-align: center;
-			color: #555;
-			font-size: 0.8em;
-			border-top: 1px solid #DDD;
-			margin-top: 23%;
-		}
-		.star-input>.input,
-.star-input>.input>label:hover,
-.star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('img/grade_img.png')no-repeat;}
-.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;;line-height:30px;}
-.star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
-.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
-star-input>.input.focus{outline:1px dotted #ddd;}
-.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
-.star-input>.input>label:hover,
-.star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
-.star-input>.input>label:hover~label{background-image: none;}
-.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
-.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
-.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
-.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
-.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
-.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
-
-		
-	</style>
-</head>	
 <body>
-	<div id="header-area" class="section">
-		<div class="image">
-			<div class="button_div">
-				<button class="back_button"><img src="back1.jpg" class="back_button_image" height="15"></button>
+	<div id="containerbox">
+		<div class="container1">
+			<div class="header">
+				<span><i class='fas fa-angle-left' onclick="goBack()"
+						style='font-size:70px; float:left; color:black,inline-block;line-height:80px;'></i></span>
+				<h1 class="logo">Climbing</h1>
 			</div>
+		</div>
 
-			<div class="box1">
-				<a href="main.html">
-					<center><h3>CLIMBING</h3></center>
-				</a>
+
+		<div id="content-area" class="section">
+			<div class="grid">
+				<div class="box">
+					<h4>Mountain Name:</h4>
+				</div>
+				<div class="box">
+					<h4>Text</h4>
+				</div>
 			</div>
-			
-		</div>
-	</div>
-	<div id="content-area" class="section">
-		<div class="grid"> 
-    			<div class="box">
-    				<h4>Mountain Name :</h4></div>
-    			<div class="box"><h4>Text</h4></div>
-    	</div>
-    	<div class="grid"> 
-    			<div class="box">
-    				<h4>Course Name :</h4></div>
-    			<div class="box"><h4>Text</h4></div>
-    	</div>
-    	<div class="grid"> 
-    			<div class="box">
-    				<h4>Taken Time :</h4></div>
-    			<div class="box"><h4>1hour</h4></div>
-    	</div>
-    	<div class="grid">
-  			<div class="box2">
-    			<h2>등급:</h2>
-    		</div>
-    		<div class="box2">
-    		<span class="star-input">
-			<span class="input">
-    		<input type="radio" name="star-input" value="1" id="p1">
-    		<label for="p1">D</label>
-    		<input type="radio" name="star-input" value="2" id="p2">
-    		<label for="p2">C</label>
-    		<input type="radio" name="star-input" value="3" id="p3">
-    		<label for="p3">B</label>
-    		<input type="radio" name="star-input" value="4" id="p4">
-    		<label for="p4">A</label>
-    		<input type="radio" name="star-input" value="5" id="p5">
-    		<label for="p5">S</label>
-  			</span>
-  			<div class="box3">
-    				<h1><output for="star-input"><b>0</b></output></h1></div>
-    				</span>
-    				
-    		</div>
-		</div>
-	</div>
+			<div class="grid">
+				<div class="box">
+					<h4>Course Name :</h4>
+				</div>
+				<div class="box">
+					<h4>Text</h4>
+				</div>
+			</div>
+			<div class="grid">
+				<div class="box">
+					<h4>Taken Time :</h4>
+				</div>
+				<div class="box">
+					<h4>1hour</h4>
+				</div>
+			</div>
+			<div class="grid">
+				<div class="box2">
+					<h2>등급:</h2>
+				</div>
+				<div class="box2">
+					<span class="star-input">
+						<span class="input">
+							<input type="radio" name="star-input" value="1" id="p1">
+							<label for="p1">D</label>
+							<input type="radio" name="star-input" value="2" id="p2">
+							<label for="p2">C</label>
+							<input type="radio" name="star-input" value="3" id="p3">
+							<label for="p3">B</label>
+							<input type="radio" name="star-input" value="4" id="p4">
+							<label for="p4">A</label>
+							<input type="radio" name="star-input" value="5" id="p5">
+							<label for="p5">S</label>
+						</span>
+						<div class="box3">
+							<h1><output for="star-input"><b>0</b></output></h1>
+						</div>
+					</span>
 
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+	<!-- <div class="wrapper-box">
+		<div class="container-rateme">
+			<span id="rateMe2" class="empty-stars mdb-rating"></span>
+		</div>
+	</div> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+
+	<!-- 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 
-	<div id="footer-area" class="section">
-		Copyright: Climbing 2018
-	</div>
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<script src="js/star.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+	<script type="text/javascript" src="./js/rating.js"></script> -->
 </body>
+
 </html>

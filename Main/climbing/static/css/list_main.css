@@ -5,7 +5,7 @@
 }
 
 .container-box {
-    background-image: url('img/bukhansan.jpg');
+  
     height: 212px;
     width: 100%;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 }
 
 .img-container {
-    background-image: url('img/halasan.jpg');
+
     height: 190px;
     background-repeat: no-repeat;
     background-size: 100%;
