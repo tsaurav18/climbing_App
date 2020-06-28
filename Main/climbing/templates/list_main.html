@@ -14,27 +14,25 @@
    
 <body>
 
-    <div class="container-box " style="background-image: url('../static/img/bukhansan.jpg');">
+    <div class="container-box " style="background-image: url('{{ mountain_of_month.imgpath }}');">
         <div class="header">
             <span><i class='fas fa-angle-left'
                     style='font-size:70px; float:left; color:black;display:inline-block;line-height:80px;'></i></span>
             <h1 class="logo">Climbing</h1>
             <span><i class='fas fa-pen'
                     style='font-size:45px; float:right; color:black;display:inline-block;line-height:80px;'></i></span>
-            <div class="text-1">Mountain of Month</div>
+            <div class="text-1"><a href="{% url 'list_detail' pk=mountain_of_month.pk %}">Mountain of Month</a></div>
         </div>
     </div>
 
-    <div class="img-container" style="background-image: url('../static/img/halasan.jpg');">
-        <div class="text-2">Recommend for you</div>
+    <div class="img-container" style="background-image: url('{{ recomend_mountain.imgpath }}');">
+        <div class="text-2"><a href="{% url 'list_detail' pk=recomend_mountain.pk %}">Recommend for you</a></div>
 
     </div>
     <div class="list">
         <ul>
-            <img src="{{ mountain_of_month }}" alt="이달의 산" width="300" height="300"><br>
-            <img src="{{ recomend_mountain }}" alt="추천하는 산" width="300" height="300"><br>
             {% for p in others %}
-                <li class="list_class" id="list_item">{{ p.name }} {{ p.date }}</li>
+                <li class="list_class" id="list_item"><a href="{% url 'list_detail' pk=p.pk %}">제목 : {{ p.name }} 날짜 : {{ p.date }}</a></li>
             {% endfor %}
         </ul>
     </div>

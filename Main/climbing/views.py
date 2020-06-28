@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 
@@ -50,22 +50,23 @@ def postlist_main(request):
     second_posts = PostMountain.objects.get(id=2)
     others = PostMountain.objects.order_by('date')
     context = {
-        'mountain_of_month': first_posts.imgpath,
-        'recomend_mountain': second_posts.imgpath,
-        'others': others[2:]
+        'mountain_of_month': first_posts,
+        'recomend_mountain': second_posts,
+        'others': others[2::-1]
     }
     return render(request, 'list_main.html', context)
 
 
 # 산 디테일 페이지
-def postlist_detail(request):
-    return render(request, 'list_detail_view.html')
+def postlist_detail(request, pk):
+    post = get_object_or_404(PostMountain, pk=pk)
+    return render(request, 'list_detail_view.html', {'post': post})
 
 
 # 산 글쓰기 페이지
 def postlist_post(request):
     form = PostForm()
-    return render(request, 'list_post_view.html', {'form':form})
+    return render(request, 'list_post_view.html', {'form': form})
 
 
 # 등산 기록 페이지
