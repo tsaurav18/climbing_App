@@ -12,6 +12,8 @@ urlpatterns = [
     # list
     path('list/', views.postlist_main, name='list_main'),
     path('list/detail/<int:pk>/', views.postlist_detail, name='list_detail'),
+    path('list/detail/<int:pk>/delete/', views.postlist_delete, name='list_delete'),
+    path('list/detail/<int:pk>/edit/', views.postlist_edit, name='list_edit'),
     path('list/post/', views.postlist_post, name='list_post'),
 
     # Record
@@ -21,6 +23,7 @@ urlpatterns = [
     path('mylist/', views.mylist_main, name='mylist_main'),
     path('mylist/<int:pk>/', views.mylist_detail, name='mylist_detail'),
     path('mylist/<int:pk>/delete', views.mylist_delete, name='mylist_delete'),
+    path('mylist/<int:pk>/edit', views.mylist_edit, name='mylist_edit'),
 
     # Friend
     path('friend/', views.friend_main, name='friend_main'),
