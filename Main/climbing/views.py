@@ -39,11 +39,17 @@ def signin(request):
         return render(request, 'signin.html', {'form': form})
 
 
+def logout(request):
+    if request.session['user']:
+        del(request.session['user'])
+    return redirect('/')
+
+
 # 메인 페이지
 def main(request):
     posts = PostMountain.objects.get(id=1)
     context = {
-        'mountain_of_month' : posts.imgpath
+        'mountain_of_month': posts
     }
     return render(request, 'main.html', context)
 
