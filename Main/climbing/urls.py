@@ -11,7 +11,7 @@ urlpatterns = [
 
     # list
     path('list/', views.postlist_main, name='list_main'),
-    path('list/detail/<int:list_id>/', views.postlist_detail, name='list_detail'),
+    path('list/detail/<int:pk>/', views.postlist_detail, name='list_detail'),
     path('list/post/', views.postlist_post, name='list_post'),
 
     # Record
