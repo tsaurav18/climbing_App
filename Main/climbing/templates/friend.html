@@ -7,7 +7,7 @@
 </head>	
 <body>
 	<div id="header-area" class="section">
-		<img src="../static/img/back.JPG" width="40" height="40">
+		<img src="../static/img/back.JPG" width="40" height="40"onclick="goBack()">
 		<div class="box1">
 			<a href="main.html">
 				<center><h3>CLIMBING</h3></center>
@@ -44,3 +44,9 @@
 
 </body>
 </html>
+
+<script src="../static/js/jquery-1.12.0.min.js"></script>
+<script>
+   goBack=()=>{
+        window.history.back();
+    }</script>
