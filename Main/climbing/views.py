@@ -73,7 +73,10 @@ def postlist_main(request):
 # 산 디테일 페이지
 def postlist_detail(request, pk):
     post = get_object_or_404(PostMountain, pk=pk)
-    return render(request, 'list_detail_view.html', {'post': post})
+    now_user = Account.objects.get(username=request.user.get_username())
+    print(post.user_id.id)
+    print(now_user)
+    return render(request, 'list_detail_view.html', {'post': post, 'now_user': now_user})
 
 
 # 산 글쓰기 페이지
@@ -104,7 +107,7 @@ def postlist_edit(request, pk):
             target.body = form.cleaned_data['body']
             target.star = form.cleaned_data['star']
             target.save()
-            return redirect('/detail/' + str(target.pk))
+            return redirect('list_detail', pk=pk)
     else:
         form = PostForm(instance=target)
         return render(request, 'list_post_view.html', {'form': form})
@@ -112,7 +115,7 @@ def postlist_edit(request, pk):
 
 # 산 글쓰기 삭제
 def postlist_delete(request, pk):
-    target = MyList.objects.get(id=pk)
+    target = PostMountain.objects.get(id=pk)
     target.delete()
     return redirect('list_main')
 
@@ -137,14 +140,16 @@ def record(request):
     if request.method == 'POST':
         form = RecordForm(request.POST)
         if form.is_valid():
-            form.save()
+            temp = form.save(commit=False)
+            temp.user_id = Account.objects.get(username=request.user.get_username())
+            temp.save()
             return redirect('mylist_main')
         else:
             return redirect('error')
     else:
         form = RecordForm()
-        return render(request, 'record.html', {'form': form})
-    # return render(request, 'record.html')
+        form2 = Record2Form()
+        return render(request, 'record.html', {'form': form, 'form2': form2})
 
 
 # 개인 등산 목록 페이지
@@ -222,22 +227,6 @@ def friend_sendmail(request, pk):
     except Exception as ex:
         print('HEY!', ex)
     return redirect('friend_main')
-
-
- # Gmail을 보내는 함수
- #    def send_email(self, email, subject, body):
- #        try:
- #            session = smtplib.SMTP('smtp.gmail.com', 587)
- #            session.starttls()
- #            session.login('dev.ksanbal@gmail.com', 'jkybizzwutfgwstn')
- #
- #            msg = MIMEText(body)
- #            msg['Subject'] = subject
- #            session.sendmail('Ereceipt@gmail.com', email, msg.as_string())
- #            print('successfully send email')
- #
- #        except Exception as ex:
- #            print("Hey! ", ex)
 
 
 # 에러 메세지 내는 페이지
