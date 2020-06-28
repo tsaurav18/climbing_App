@@ -117,6 +117,7 @@ body {
     line-height:47px ;
     font-size: 24px;
     cursor: pointer;
+
 }
 a{
 text-decoration: none!important;
@@ -138,6 +139,9 @@ h3 {
     padding-top: 50px;
 
 }
+.fas{
+	cursor: pointer;
+}
 
 .row-btn {
     padding: 29px 28px;
@@ -148,6 +152,7 @@ h3 {
     color: white;
     background: #0f8fdb;
     border-radius: 8px;
+    cursor: pointer
 }
 
 .footer {
