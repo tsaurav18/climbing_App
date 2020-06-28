@@ -22,12 +22,12 @@
 
         <div class="userBox">
             <div class="boxWrapper">
-                <div class="logout-btn" onclick="logout()">Logout</div>
+                <div class="logout-btn" onclick="logout()"><a href="{% url 'logout' %}">Logout</a></div>
             </div>
         </div>
         <div class="img-container">
-            <div class="mountain-image" style="background-image: url('../static/img/mountain.jpg');">
-                <div class="text">이 달의 산</div>
+            <div class="mountain-image" style="background-image: url('{{ mountain_of_month.imgpath }}');">
+                <div class="text"><a href="{% url 'list_detail' pk=mountain_of_month.pk %}">이 달의 산</a></div>
             </div>
 
         </div>
