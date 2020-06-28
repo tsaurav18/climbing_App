@@ -37,5 +37,7 @@ class MyList(models.Model):
     time = models.CharField(max_length=10)
     date = models.DateTimeField(auto_now_add=True)
     score = models.IntegerField(default=1)
+    user_id = models.ForeignKey(Account, on_delete=models.CASCADE, default=1)
+
 
 

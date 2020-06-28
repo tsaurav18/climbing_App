@@ -98,8 +98,6 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     )
 
 
-
-
 # 등산 기록 페이지
 def record(request):
     if request.method == 'POST':
@@ -117,16 +115,25 @@ def record(request):
 
 # 개인 등산 목록 페이지
 def mylist_main(request):
-    mylist = MyList.objects.order_by('date')
+    now_id = Account.objects.get(username=request.user.get_username()).id
+    mylist = MyList.objects.filter(user_id=now_id)
     context = {
         'mylist': mylist
     }
-    return render(request, 'mylist.html', context)
+    return render(request, 'mylist_main.html', context)
 
 
 # 개인 등산 상세 페이지
-def mylist_detail(request, id):
-    return render(request, 'mylist_detail.html')
+def mylist_detail(request, pk):
+    mine = get_object_or_404(MyList, pk=pk)
+    return render(request, 'mylist_detail.html', {'mine' : mine})
+
+
+# 개인 등산 리스트 삭제
+def mylist_delete(request, pk):
+    target = MyList.objects.get(id=pk)
+    target.delete()
+    return redirect('mylist_main')
 
 
 # 친구 추천 페이지
