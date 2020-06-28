@@ -23,7 +23,7 @@ urlpatterns = [
     path('mylist/', views.mylist_main, name='mylist_main'),
     path('mylist/<int:pk>/', views.mylist_detail, name='mylist_detail'),
     path('mylist/<int:pk>/delete', views.mylist_delete, name='mylist_delete'),
-    path('mylist/<int:pk>/edit', views.mylist_edit, name='mylist_edit'),
+    # path('mylist/<int:pk>/edit', views.mylist_edit, name='mylist_edit'),
 
     # Friend
     path('friend/', views.friend_main, name='friend_main'),
