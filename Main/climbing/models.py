@@ -1,16 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # 계정정보 모델
-class Account(models.Model):
+class Account(User):
     gender_options = (
         ('male', 'MAN'),
         ('female', 'WOMAN')
     )
-
-    username = models.CharField(max_length=20, unique=True)
-    pw = models.CharField(max_length=20)
-    email = models.EmailField()
     birth = models.CharField(max_length=6)
     gender = models.CharField(max_length=8, choices=gender_options)
     score = models.IntegerField(default=0)
