@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgb(187, 187, 186)
+    background-color: rgb(144, 144, 100);
 }
 
 .container-box {
@@ -30,16 +30,20 @@ body {
     opacity: 1;
 }
 
+
 .start-btn {
     font-size: 30px;
     text-align: center;
     margin: 47px auto;
-    background-color: rgb(163, 177, 240);
+    background-color: #f8f9fa;
     padding: 82px;
     cursor: pointer;
     width: 100%;
     height: 100%;
     overflow: auto;
+    border-radius:28px;
+    border:none;
+    outline: none;
 
 }
 
@@ -50,7 +54,9 @@ body {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+ 
+    height: 800px;
+
     overflow: auto;
     background: rgba(0, 0, 0, 0.4);
 
@@ -68,6 +74,7 @@ body {
 #popup-form {
     margin-top: 187px;
     padding: 35px 0px;
+    margin-left: 8px;
 }
 
 .form-input1 {
@@ -75,18 +82,20 @@ body {
     width: 94%;
     border: 1px solid rgb(128, 125, 125);
     border-radius: 5px;
-    outline: none
+    outline: none;
+    margin-top:15px;
+    margin-left:10px
 }
 
 .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-    z-index: 3
-}
+     position: absolute;
+     right: 23px;
+     top: 182px;
+     color: #000;
+     font-size: 35px;
+     font-weight: bold;
+     z-index: 3
+ }
 
 .close:hover,
 .close:focus {
@@ -133,13 +142,15 @@ body {
 }
 
 .old-record {
-    border: 1px solid rgb(230, 213, 213);
+  
     text-align: center;
     margin: 0px 79px;
     padding: 10px;
     border: none;
-    background: rgb(87, 87, 247);
-    color: white
+    background: #d4d9da;
+    color: black;
+    border-radius: 10px;
+    font-size: 24px;
 }
 
 
@@ -165,17 +176,20 @@ input[type="text"] {
 .post-btn {
     text-align: center;
     margin: 0px 10px;
-    background-color: rgb(87, 87, 247);
+    background-color: rgb(78, 78, 86);
     color: white;
     width: 88px;
     float: right;
     padding: 10px;
+    border-radius: 10px;
+    border: none;
+
 }
 
 .post-btn:hover {
     cursor: pointer;
     background-color: rgb(50, 47, 47);
-
+    
 }
 .bottom-container{
     position: fixed;

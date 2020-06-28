@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %} 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +16,7 @@
 
     <div class="container-box " style="background-image: url('{{ mountain_of_month.imgpath }}');">
         <div class="header">
-            <span><i class='fas fa-angle-left'
+            <span><i class='fas fa-angle-left' onclick="goBack()"
                     style='font-size:70px; float:left; color:black;display:inline-block;line-height:80px;'></i></span>
             <h1 class="logo">Climbing</h1>
             <span><i class='fas fa-pen'
@@ -48,9 +48,6 @@
         </nav>
     </div>
     </div>
-    <div class="footer">
-        <p>Copyright 2020 Climbing All Right Reserved</p>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -64,3 +61,8 @@
 </body>
 
 </html>
+<script src="../static/js/jquery-1.12.0.min.js"></script>
+<script>
+   goBack=()=>{
+        window.history.back();
+    }</script>

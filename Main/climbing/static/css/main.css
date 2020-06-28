@@ -30,11 +30,36 @@ body {
     padding-left: 77px;
     font-weight: 500;
 }
+.userBox{
+    background-color:rgb(232, 225, 227);
+    width: 142px;
+    height:49px;
+    overflow: hidden;
+    float: right; 
+    display:none
+    
+}
+   
+.logout-btn{
+    border-bottom: 1px solid grey;
+    text-align: center;
+    background-color: rgb(232, 225, 227);
+    padding: 10px;
+    font-size: 19px;
+}
+
+    
+    .active{
+        display:block
+    }
+    
+
+
 
 .img-container {
     width: 100%;
     height: 246px;
-    background-color: burlywood;
+   
     z-index: 2
 }
 
@@ -48,11 +73,13 @@ body {
 }
 
 .text {
-    position: absolute;
-    top: 277px;
-    left: 155px;
+    position: relative;
+   
     color: white;
-    font-size: x-large;
+    font-size: 27px;
+    text-align: center;
+    top: 187px;
+
 
 }
 
@@ -83,11 +110,22 @@ body {
 .list-btn {
     padding: 10px 9px;
     margin: 9px 112px;
-    background: rgb(102, 92, 235);
+    background: #0f8fdb;
     height: 68px;
     border-radius: 8px;
+    text-align: center;
+    line-height:47px ;
+    font-size: 24px;
+    cursor: pointer;
 }
-
+a{
+text-decoration: none!important;
+color: white;
+}
+a:hover{
+    text-decoration: none!important;
+    color:#cec8c8;
+}
 h3 {
     text-align: center;
     color: white;
@@ -108,7 +146,7 @@ h3 {
     margin: 0 auto;
     box-sizing: border-box;
     color: white;
-    background: rgb(102, 92, 235);
+    background: #0f8fdb;
     border-radius: 8px;
 }
 
