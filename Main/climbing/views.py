@@ -88,7 +88,7 @@ def postlist_edit(request, pk):
     target = PostMountain.objects.get(id=pk)
     # 글을 수정사항을 입력하고 제출을 눌렀을 때
     if request.method == "POST":
-        form = PostForm(request.POST, request.FILES)
+        form = PostForm(request.POST)
         if form.is_valid():
             # target.imgpath = form.cleaned_data['']
             target.name = form.cleaned_data['name']
@@ -97,7 +97,7 @@ def postlist_edit(request, pk):
             target.save()
             return redirect('/detail/' + str(target.pk))
     else:
-        form = PostForm()
+        form = PostForm(instance=target)
         return render(request, 'list_post_view.html', {'form': form})
 
 
@@ -108,19 +108,19 @@ def postlist_delete(request, pk):
     return redirect('list_main')
 
 
-# gcs에 파일 업로드 및 linkurl 반환
-def upload_blob(bucket_name, source_file_name, destination_blob_name):
-    storage_client = storage.Client()
-    bucket = storage_client.bucket(bucket_name)
-    blob = bucket.blob(destination_blob_name)
-
-    blob.upload_from_filename(source_file_name)
-
-    print(
-        "File {} uploaded to {}.".format(
-            source_file_name, destination_blob_name
-        )
-    )
+# # gcs에 파일 업로드 및 linkurl 반환
+# def upload_blob(bucket_name, source_file_name, destination_blob_name):
+#     storage_client = storage.Client()
+#     bucket = storage_client.bucket(bucket_name)
+#     blob = bucket.blob(destination_blob_name)
+#
+#     blob.upload_from_filename(source_file_name)
+#
+#     print(
+#         "File {} uploaded to {}.".format(
+#             source_file_name, destination_blob_name
+#         )
+#     )
 
 
 # 등산 기록 페이지
@@ -161,11 +161,20 @@ def mylist_delete(request, pk):
     return redirect('mylist_main')
 
 
-# 개인 등산 리스트 수정
-def mylist_edit(request, pk):
-    target = MyList.objects.get(id=pk)
-    pass
-    return redirect('mylist_main')
+# # 개인 등산 리스트 수정
+# def mylist_edit(request, pk):
+#     target = MyList.objects.get(id=pk)
+#     if request.method == "POST":
+#         form = RecordForm(request.POST)
+#         if form.is_valid():
+#             target.m_name = form.cleaned_data['m_name']
+#             target.course = form.cleaned_data['course']
+#             target.time = form.cleaned_data['time']
+#             target.save()
+#             return redirect('/detail/' + str(target.pk))
+#     else:
+#         form = RecordForm(instance=target)
+#         return render(request, 'mylsit_edit.html', {'form': form})
 
 
 # 친구 추천 페이지
