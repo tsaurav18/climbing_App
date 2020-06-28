@@ -4,6 +4,9 @@ from django.contrib.auth import login, authenticate
 
 # from google.cloud import storage
 
+import smtplib
+from email.mime.text import MIMEText
+
 import os, tempfile
 
 from .forms import *
@@ -157,7 +160,7 @@ def mylist_main(request):
 # 개인 등산 상세 페이지
 def mylist_detail(request, pk):
     mine = get_object_or_404(MyList, pk=pk)
-    return render(request, 'mylist_detail.html', {'mine' : mine})
+    return render(request, 'mylist_detail.html', {'mine': mine})
 
 
 # 개인 등산 리스트 삭제
@@ -185,12 +188,56 @@ def mylist_delete(request, pk):
 
 # 친구 추천 페이지
 def friend_main(request):
-    return render(request, 'friend.html')
+    Users = Account.objects.all()
+    context = {
+        'Users': Users[1:]
+    }
+    return render(request, 'friend.html', context)
 
 
 # 친구 상세 페이지
 def friend_detail(request):
     return render(request, 'friend_detail.html')
+
+
+# 친구 상세 페이지
+def friend_sendmail(request, pk):
+    now_me = Account.objects.get(username=request.user.get_username())
+    target = Account.objects.get(id=pk)
+
+    try:
+        session = smtplib.SMTP('smtp.gmail.com', 587)
+        session.starttls()
+        session.login('dev.ksanbal@gmail.com', 'jkybizzwutfgwstn')
+
+        msg = MIMEText('''
+            Climbinb
+            
+            안녕하세요 {}님!
+            {}님이 당신과 연락하고 싶어합니다!
+            {}로 메일을 보내 대화해보세요!!
+        '''.format(target.username, now_me.username, now_me.email))
+        msg['Subject'] = 'Climbing - 누군가 당신과 연락하고 싶어해요!'
+        session.sendmail('Climbing@gmail.com', target.email, msg.as_string())
+    except Exception as ex:
+        print('HEY!', ex)
+    return redirect('friend_main')
+
+
+ # Gmail을 보내는 함수
+ #    def send_email(self, email, subject, body):
+ #        try:
+ #            session = smtplib.SMTP('smtp.gmail.com', 587)
+ #            session.starttls()
+ #            session.login('dev.ksanbal@gmail.com', 'jkybizzwutfgwstn')
+ #
+ #            msg = MIMEText(body)
+ #            msg['Subject'] = subject
+ #            session.sendmail('Ereceipt@gmail.com', email, msg.as_string())
+ #            print('successfully send email')
+ #
+ #        except Exception as ex:
+ #            print("Hey! ", ex)
 
 
 # 에러 메세지 내는 페이지

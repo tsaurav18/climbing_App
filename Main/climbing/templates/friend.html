@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CLIMBLING</title>
+	<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0" charset="utf-8">
+	<link rel="stylesheet" href="../static/css/list_friend.css">
+</head>	
+<body>
+	<div id="header-area" class="section">
+		<img src="../static/img/back.JPG" width="40" height="40">
+		<div class="box1">
+			<a href="main.html">
+				<center><h3>CLIMBING</h3></center>
+			</a>
+
+		</div>
+	</div>
+	<div class="grid1">
+	<center><div class="image" style="background-image:url('../static/img/searchF.jpg'); 
+	"></div></center>
+	</div>
+	<div id="content-area">
+        {% for user in Users %}
+            <div class="grid">
+                <div class="grid">
+                    <a href="{% url 'friend_sendmail' pk=user.pk %}">
+                        <img src="../static/img/men.jpg" width="60" align="left" border="0px">
+                        <div class="left"><h4>{{ user.username }}<br>{{ user.email }}</h4></div>
+                        {% if user.score <= 2 %}
+                            <img src="../static/img/c.jpg" width="60" align="right" border="0px">
+                        {% elif user.score == 3 %}
+                            <img src="../static/img/b.jpg" width="60" align="right" border="0px">
+                        {% elif user.score == 4 %}
+                            <img src="../static/img/a.jpg" width="60" align="right" border="0px">
+                        {% elif user.score == 5 %}
+                            <img src="../static/img/s.jpg" width="60" align="right" border="0px">
+                        {% endif %}
+                        <div class="right"><h3>등급</h3></div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+	</div>
+
+</body>
+</html>
