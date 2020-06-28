@@ -17,7 +17,18 @@ class SigninForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = PostMountain
-        fields = ['imgpath', 'name', 'body', 'star']
+        fields = ['img', 'name', 'body', 'star']
+        widgets = {
+            'img': forms.FileInput(
+                attrs={'class': 'row_box', 'placeholder': 'Title'}
+            ),
+            'name': forms.TextInput(
+                attrs={'class': 'row_info', 'placeholder': 'Name'}
+            ),
+            'body': forms.TextInput(
+                attrs={'class': 'content', 'placeholder': 'Type here'}
+            )
+        }
 
 
 class RecordForm(forms.ModelForm):

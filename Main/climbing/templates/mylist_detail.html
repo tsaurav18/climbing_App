@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 
 <head>
@@ -8,7 +9,7 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../static/css/mylist_detail.css">
+	<link rel="stylesheet" href={% static 'css/mylist_detail.css' %}>
 
 
 
@@ -32,7 +33,7 @@
 					<h4>Mountain Name:</h4>
 				</div>
 				<div class="box">
-					<h4>Text</h4>
+					<h4>{{ mine.m_name }}</h4>
 				</div>
 			</div>
 			<div class="grid">
@@ -40,7 +41,7 @@
 					<h4>Course Name :</h4>
 				</div>
 				<div class="box">
-					<h4>Text</h4>
+					<h4>{{ mine.course }}</h4>
 				</div>
 			</div>
 			<div class="grid">
@@ -48,7 +49,7 @@
 					<h4>Taken Time :</h4>
 				</div>
 				<div class="box">
-					<h4>1hour</h4>
+					<h4>{{ mine.time }}</h4>
 				</div>
 			</div>
 			<div class="grid">
@@ -73,6 +74,8 @@
 							<h1><output for="star-input"><b>0</b></output></h1>
 						</div>
 					</span>
+
+                        <p><a href="{% url 'mylist_delete' pk=mine.pk %}">삭제</a></p>
 
 				</div>
 			</div>
