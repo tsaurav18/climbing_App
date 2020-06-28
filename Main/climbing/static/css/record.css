@@ -185,6 +185,9 @@ input[type="text"] {
     border: none;
 
 }
+.fas{
+	cursor: pointer;
+}
 
 .post-btn:hover {
     cursor: pointer;

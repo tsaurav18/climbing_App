@@ -35,6 +35,9 @@
     overflow: hidden;
 
 }
+.fas{
+	cursor: pointer;
+}
 
 .row-box {
     text-align: center;

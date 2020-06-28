@@ -60,13 +60,16 @@
     margin: 31px 3px;
     padding: 0px 10px;
 }
-
+.fas{
+	cursor: pointer;
+}
 .list li {
     list-style-type: none;
     border-bottom: 2px solid black;
     padding: 9px 9px;
-    text-align: center;
+   
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .page-box {
