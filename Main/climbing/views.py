@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 
 from .forms import *
@@ -11,7 +10,7 @@ def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            new_user = User.objects.create_user(**form.cleaned_data)
+            new_user = Account.objects.create_user(**form.cleaned_data)
             login(request, new_user)
             return redirect('main')
     else:
