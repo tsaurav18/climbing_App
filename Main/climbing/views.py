@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 
-from google.cloud import storage
+# from google.cloud import storage
 
 import os, tempfile
 
@@ -83,6 +83,31 @@ def postlist_post(request):
         return render(request, 'list_post_view.html', {'form': form})
 
 
+# 산 글쓰기 수정
+def postlist_edit(request, pk):
+    target = PostMountain.objects.get(id=pk)
+    # 글을 수정사항을 입력하고 제출을 눌렀을 때
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            # target.imgpath = form.cleaned_data['']
+            target.name = form.cleaned_data['name']
+            target.body = form.cleaned_data['body']
+            target.star = form.cleaned_data['star']
+            target.save()
+            return redirect('/detail/' + str(target.pk))
+    else:
+        form = PostForm()
+        return render(request, 'list_post_view.html', {'form': form})
+
+
+# 산 글쓰기 삭제
+def postlist_delete(request, pk):
+    target = MyList.objects.get(id=pk)
+    target.delete()
+    return redirect('list_main')
+
+
 # gcs에 파일 업로드 및 linkurl 반환
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
     storage_client = storage.Client()
@@ -133,6 +158,13 @@ def mylist_detail(request, pk):
 def mylist_delete(request, pk):
     target = MyList.objects.get(id=pk)
     target.delete()
+    return redirect('mylist_main')
+
+
+# 개인 등산 리스트 수정
+def mylist_edit(request, pk):
+    target = MyList.objects.get(id=pk)
+    pass
     return redirect('mylist_main')
 
 
