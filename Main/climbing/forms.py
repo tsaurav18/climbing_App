@@ -1,17 +1,18 @@
 from django import forms
 from .models import *
+from django.contrib.auth.models import User
 
 
 class SignupForm(forms.ModelForm):
     class Meta:
-        model = Account
-        fields = ['username', 'pw', 'email', 'birth', 'gender']
+        model = User
+        fields = ['username', 'password', 'email', 'birth', 'gender']
 
 
 class SigninForm(forms.ModelForm):
     class Meta:
-        model = Account
-        fields = ['username', 'pw']
+        model = User
+        fields = ['username', 'password']
 
 
 class PostForm(forms.ModelForm):

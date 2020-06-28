@@ -1,4 +1,8 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+
 from .forms import *
 from .models import *
 
@@ -7,10 +11,9 @@ def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('signin')
-        else:
-            return redirect('errorpage')
+            new_user = User.objects.create_user(**form.cleaned_data)
+            login(request, new_user)
+            return redirect('main')
     else:
         form = SignupForm()
         return render(request, 'signup.html', {'form': form})
@@ -19,16 +22,15 @@ def signup(request):
 def signin(request):
     if request.method == 'POST':
         form = SigninForm(request.POST)
-        if form.is_valid():
-            print(request.POST)
-            try:
-                model = Account(username=request.POST['username'])
-            except Exception as ex:
-                print(ex)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
 
+        if user is not None:
+            login(request, user)
             return redirect('main')
         else:
-            return redirect('errorpage')
+            return HttpResponse('로그인 실패')
     else:
         form = SigninForm()
         return render(request, 'signin.html', {'form': form})
