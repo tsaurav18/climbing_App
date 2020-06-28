@@ -13,7 +13,7 @@ SECRET_KEY = 'opx!xmujnk(soer5v!%8sjyu&xbx&v5pfulb&b9lo_u77&jh_7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
