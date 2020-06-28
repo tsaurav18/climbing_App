@@ -16,7 +16,7 @@
 
     <div class="container-box" style="  background-image: url('../static/img/bukhansan.jpg');">
         <div class="header">
-            <span><i class='fas fa-angle-left'
+            <span><i class='fas fa-angle-left' onclick="goBack()"
                     style='font-size:70px; float:left; color:black,inline-block;line-height:80px;'></i></span>
             <h1 class="logo">Climbing</h1>
 
@@ -78,3 +78,9 @@
 </body>
 
 </html>
+
+<script src="../static/js/jquery-1.12.0.min.js"></script>
+<script>
+   goBack=()=>{
+        window.history.back();
+    }</script>

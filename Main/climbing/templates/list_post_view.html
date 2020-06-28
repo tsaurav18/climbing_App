@@ -13,6 +13,18 @@
 </head>
 
 <body>
+
+    <form action="action.jsp" method="post">
+        <div class="container-box" style="background-image:url('../static/img/bukhansan.jpg')">
+            <div class="header">
+                <span><i class='fas fa-angle-left' onclick="goBack()"
+                        style='font-size:70px; float:left; color:black,inline-block;line-height:80px;'></i></span>
+                <h1 class="logo">Climbing</h1>
+                <div class="image-upload"><i class="fas fa-plus"></i></div>
+
+            </div>
+        </div>
+
 {#    <form action="action.jsp" method="post">#}
 {#        <div class="container-box" style="background-image:url('../static/img/bukhansan.jpg')">#}
 {#            <div class="header">#}
@@ -23,6 +35,7 @@
 {##}
 {#            </div>#}
 {#        </div>#}
+
 
 <div class="content-box">
 
@@ -84,3 +97,9 @@
 </body>
 
 </html>
+
+<script src="../static/js/jquery-1.12.0.min.js"></script>
+<script>
+   goBack=()=>{
+        window.history.back();
+    }</script>

@@ -8,7 +8,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
- 
+
     <link rel="stylesheet" href="../static/css/main.css">
 </head>
 
@@ -18,6 +18,12 @@
             <h1 class="logo">Climbing</h1>
             <span><i class='fas fa-user-alt'
                     style='font-size:48px; float:right; color:black;display:inline-block;line-height:80px;padding-right:17px;'></i></span>
+        </div>
+
+        <div class="userBox">
+            <div class="boxWrapper">
+                <div class="logout-btn" onclick="logout()">Logout</div>
+            </div>
         </div>
         <div class="img-container">
             <div class="mountain-image" style="background-image: url('../static/img/mountain.jpg');">
@@ -29,7 +35,9 @@
         <div class="btn-container">
             <div class="list-btn-container">
                 <div class="list-btn">
-                    <div class="col-xs-6 row-btn"><a href="/list">리스트</a></div>
+                  
+                        <a href="/list">리스트</a>
+                   
                 </div>
             </div>
             <div class="row">
@@ -54,3 +62,15 @@
 </body>
 
 </html>
+
+<script src="../static/js/jquery-1.12.0.min.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+        $(".fas").click(function () {
+            $(".userBox").toggleClass("active")
+        })
+    })
+
+</script>
