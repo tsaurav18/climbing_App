@@ -23,11 +23,10 @@
 	"></div>
 	</div>
 	<div id="content-area">
-		<div class="grid"> 
+		<div class="grid"> s
     			<div class="left"><h3>산 이름</h3></div>
     			<div class="right"><h3>소요시간</h3></div>
     	</div>
-        {% for list in mylist %}
         <div class="grid">
     		<a href="{% url 'mylist_detail' pk=list.pk %}">
     			<div class="grid">
@@ -36,7 +35,30 @@
     			</div>
     		</a>
     	</div>
-        {% endfor %}
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
 	</div>
 
 	
