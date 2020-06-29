@@ -237,7 +237,11 @@ def friend_sendmail(request, pk):
         '''.format(target.username, now_me.username, now_me.email))
         msg['Subject'] = 'Climbing - 누군가 당신과 연락하고 싶어해요!'
         session.sendmail('Climbing@gmail.com', target.email, msg.as_string())
-        return HttpResponse('메일을 전송했습니다!')
+
+        context = {
+            'issuccess': True
+        }
+        return render(request, 'friend_main', context)
     except Exception as ex:
         print('HEY!', ex)
         return redirect('friend_main')

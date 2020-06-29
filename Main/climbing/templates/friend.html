@@ -23,7 +23,7 @@
         {% for user in Users %}
             <div class="grid">
                 <div class="grid">
-                    <a href="{% url 'friend_sendmail' pk=user.pk %}">
+                    <a href="{% url 'friend_sendmail' pk=user.pk %}" onclick="send()">
                         <img src="../static/img/men.jpg" width="60" align="left" border="0px">
                         <div class="left"><h4>{{ user.username }}<br>{{ user.email }}</h4></div>
                         {% if user.score <= 2 %}
@@ -41,6 +41,12 @@
             </div>
         {% endfor %}
 	</div>
+
+    <script type="text/javascript">
+        function send(){
+            alert("메일을 보냈습니다!");
+        }
+    </script>
 
 </body>
 </html>
