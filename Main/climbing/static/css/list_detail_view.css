@@ -5,7 +5,7 @@
 }
 
 .container-box {
- 
+   
     height: 250px;
     width: 100%;
     background-repeat: no-repeat;
@@ -34,6 +34,9 @@
     margin: 10px 30px;
     overflow: hidden;
 
+}
+.box-1{
+    margin:8px ;
 }
 .fas{
 	cursor: pointer;

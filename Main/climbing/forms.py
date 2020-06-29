@@ -25,8 +25,11 @@ class PostForm(forms.ModelForm):
             'name': forms.TextInput(
                 attrs={'class': 'row_info', 'placeholder': 'Name'}
             ),
-            'body': forms.TextInput(
+            'body': forms.Textarea(
                 attrs={'class': 'content', 'placeholder': 'Type here'}
+            ),
+            'star':forms.NumberInput(
+                  attrs={'class': 'star', 'placeholder': '0'}
             )
         }
 

@@ -6,17 +6,16 @@
 
 .container-box {
 
-    height: 250px;
+    height: 20px;
     width: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
+  
     margin: 0;
     padding: 0;
 }
 
 .header {
     padding: 0 10px;
-    height: 75px;
+    
 }
 
 .logo {
@@ -49,8 +48,7 @@ input[type="text"]{
     
 }
 .content-box {
-    margin: 10px 30px;
-    overflow: hidden;
+    margin: 84px 30px;
 
 }
 
@@ -72,8 +70,9 @@ input[type="text"]{
 .content {
     clear: both;
     border: 1px solid black;
-    margin-top: 56px;
-    border-radius: 8px
+    width: 304px;
+    border-radius: 8px;
+    outline:none
 }
 
 .wrapper-box {
@@ -96,11 +95,15 @@ input[type="text"]{
     font-size: 21px;
 
 }
-
+.star{
+    width: 32px;
+    text-align: center;
+    border-radius: 7px;
+}
 .btn1 {
     margin: 0px 5px;
     background-color: rgb(172, 166, 166);
-    padding: 0px 9px;
+    padding: 0px 19px;
     border: none;
     height: 41px;
     line-height: 21px;

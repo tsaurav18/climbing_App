@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -26,20 +26,17 @@
 
     <div class="content-box">
         <img src = "{{ post.img.url }}" alt="post 이미지" width="500" height="300">
-        <div class="row-box">제목 : {{ post.name }}</div>
-        <div class="row-info">작성자 : {{ post.user_id }}</div>
-        <div class=" date">작성일 : {{ post.date }}</div>
-        <div class="content">
+        <div class="row-box box-1">제목 : {{ post.name }}</div>
+        <div class="row-info box-1">작성자 : {{ post.user_id }}</div>
+        <div class=" date box-1" >작성일 : {{ post.date }}</div>
+        <div class="content box-1">
             {{ post.body }}
           
         <br>점수 : {{ post.star }}
         </div>
-        <div class="wrapper-box">
-            <div class="container-rateme">
-                <span id="rateMe2" class="empty-stars mdb-rating"></span>
-            </div>
+       
 
-            <div class="message"><i class="fas fa-envelope"></i></div>
+           
             {% if post.user_id == now_user %}
                 <p><a href="{% url 'list_edit' pk=post.pk %}">수정</a></p>
                 <p><a href="{% url 'list_delete' pk=post.pk %}">삭제</a></p>

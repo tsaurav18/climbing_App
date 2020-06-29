@@ -15,12 +15,12 @@
 <body>
 
 {#    <form action="action.jsp" method="post">#}
-        <div class="container-box" style="background-image:url('../static/img/bukhansan.jpg')">
+        <div class="container-box">
             <div class="header">
                 <span><i class='fas fa-angle-left' onclick="goBack()"
                         style='font-size:70px; float:left; color:black,inline-block;line-height:80px;'></i></span>
                 <h1 class="logo">Climbing</h1>
-                <div class="image-upload"><i class="fas fa-plus"></i></div>
+                <!-- <div class="image-upload"><i class="fas fa-plus"></i></div> -->
 
             </div>
         </div>
@@ -42,7 +42,7 @@
 {#            <input type="text" class="row-box" id="title" name="utitle" placeholder="Title"/>#}
 {#            <input type="text" class="row-info" id="name" name="uname" placeholder="Name"/>#}
 {##}
-{#            <textarea class="content" cols="38" rows="5" id="content" name="content"  placeholder="type here">#}
+{#            <textarea class="content" cols="35" rows="5" id="content" name="content"  placeholder="type here">#}
 {##}
 {##}
 {#               #}
@@ -51,7 +51,7 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Post"/>
+                <input type="submit" class="btn1" value="Post"/>
             </form>
 
             <div class="wrapper-box">
@@ -59,8 +59,7 @@
                     <span id="rateMe2"  class="empty-stars mdb-rating"></span>
                 </div>
 
-                <div class="message"><button class="btn1" id="cancel-btn" value="Cancel">Cancel </button><button
-                        class="btn1" id="post-btn" value="Post" onclick="writePostDone()" >Post</button></div>
+                
             </div>
         </div>
           

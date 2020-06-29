@@ -97,3 +97,21 @@ nav {
     height: 65px;
     line-height: 65px;
 }
+
+.text-1>a{
+    text-decoration: none!important;
+    color: white
+}
+.text-2>a{
+    text-decoration: none!important;
+    color: white
+}
+
+a{
+    text-decoration: none!important;
+    color: black
+}
+a:hover{
+    text-decoration: none!important;
+    color: grey
+}
