@@ -12,27 +12,6 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'css/mylist_detail.css' %}">
 
-    <style type="text/css">
-        .star-input>.input,
-.star-input>.input>label:hover,
-.star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background-image:url('{% static 'img/grade_img.png' %}');}
-.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;;line-height:30px;}
-.star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
-.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
-.star-input>.input.focus{outline:1px dotted #ddd;}
-.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
-.star-input>.input>label:hover,
-.star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
-.star-input>.input>label:hover~label{background-image: none;}
-.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
-.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
-.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
-.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
-.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
-.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
-    </style>
 
 
 
@@ -77,31 +56,15 @@
 				</div>
 			</div>
 			<div class="grid">
-				<div class="box2">
+				<div class="box">
 					<h2>등급:</h2>
 				</div>
-				<div class="box2">
-					<span class="star-input">
-						<span class="input">
-							<input type="radio" name="star-input" value="1" id="p1">
-							<label for="p1">D</label>
-							<input type="radio" name="star-input" value="2" id="p2">
-							<label for="p2">C</label>
-							<input type="radio" name="star-input" value="3" id="p3">
-							<label for="p3">B</label>
-							<input type="radio" name="star-input" value="4" id="p4">
-							<label for="p4">A</label>
-							<input type="radio" name="star-input" value="5" id="p5">
-							<label for="p5">S</label>
-						</span>
-						<div class="box3">
-							<h1><output for="star-input"><b>0</b></output></h1>
-						</div>
-					</span>
-                </div>
+                <div class="box">
+					<h4> . </h4>
+				</div>
             </div>
             <div class="grid">
-               <a href="{% url 'mylist_delete' pk=mine.pk %}">삭제</a>
+                <p><a href="{% url 'mylist_delete' pk=mine.pk %}">삭제</a></p>
             </div>
     </div>
 
