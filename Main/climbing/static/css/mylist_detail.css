@@ -14,6 +14,17 @@
     margin: 0;
     padding: 0;
 }
+a{
+	border-radius: 15px;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid;
+    padding: 13px 25px;
+  
+    color: white;
+    background: #716c6c;
+}
 
 .header {
     padding: 0 10px;
@@ -125,7 +136,7 @@ body {
 		.grid{
 			float:left;
 			width:100%;
-			border-bottom: 1px solid #DDD;
+			margin-top:10px
 		}
 	
 
