@@ -86,10 +86,10 @@ def postlist_post(request):
             temp.user_id = Account.objects.get(username=request.user.get_username())
             temp.save()
             imgpath = '.'+PostMountain.objects.get(id=temp.id).img.url
-            temp.imgpath = upload_file_gcs(imgpath, 'Postimgs/test.jpg')
+            # temp.imgpath = upload_file_gcs(imgpath, 'Postimgs/test.jpg')
             print('이미지 업로드 성공')
             temp.save()
-            return redirect('list_main')
+            return redirect('list_detail', pk=temp.id)
         else:
             return redirect('error')
     else:
@@ -122,30 +122,30 @@ def postlist_delete(request, pk):
     return redirect('list_main')
 
 
-# gcs에 파일 업로드 및 linkurl 반환
-def upload_file_gcs(img_dir, destination_blob_name, bucket_name='climbing_storage'):
-    # file_name : 업로드할 파일명
-    # destination_blob_name : 업로드될 경로와 파일명
-    # bucket_name : 업로드할 버킷명
-
-    file_name = open(img_dir, 'rb')  # 업로드할 이미지의 파일 객체
-
-    try:
-        # upload img
-        storage_client = storage.Client()
-        bucket = storage_client.get_bucket(bucket_name)
-        blob = bucket.blob(destination_blob_name)
-        blob.upload_from_file(file_name)
-    except Exception as ex:
-        print('upload :', ex)
-
-    try:
-        # get url from gcs
-        bucket_get = storage_client.bucket(bucket_name)
-        blob_get = bucket_get.blob(destination_blob_name)
-        return blob_get.public_url
-    except Exception as ex:
-        print('get url : ', ex)
+# # gcs에 파일 업로드 및 linkurl 반환
+# def upload_file_gcs(img_dir, destination_blob_name, bucket_name='climbing_storage'):
+#     # file_name : 업로드할 파일명
+#     # destination_blob_name : 업로드될 경로와 파일명
+#     # bucket_name : 업로드할 버킷명
+#
+#     file_name = open(img_dir, 'rb')  # 업로드할 이미지의 파일 객체
+#
+#     try:
+#         # upload img
+#         storage_client = storage.Client()
+#         bucket = storage_client.get_bucket(bucket_name)
+#         blob = bucket.blob(destination_blob_name)
+#         blob.upload_from_file(file_name)
+#     except Exception as ex:
+#         print('upload :', ex)
+#
+#     try:
+#         # get url from gcs
+#         bucket_get = storage_client.bucket(bucket_name)
+#         blob_get = bucket_get.blob(destination_blob_name)
+#         return blob_get.public_url
+#     except Exception as ex:
+#         print('get url : ', ex)
 
 
 # 등산 기록 페이지
@@ -168,7 +168,7 @@ def record(request):
 # 개인 등산 목록 페이지
 def mylist_main(request):
     now_id = Account.objects.get(username=request.user.get_username()).id
-    mylist = MyList.objects.filter(user_id=now_id)
+    mylist = MyList.objects.filter(user_id=now_id).order_by('-date')
     context = {
         'mylist': mylist
     }
@@ -237,9 +237,10 @@ def friend_sendmail(request, pk):
         '''.format(target.username, now_me.username, now_me.email))
         msg['Subject'] = 'Climbing - 누군가 당신과 연락하고 싶어해요!'
         session.sendmail('Climbing@gmail.com', target.email, msg.as_string())
+        return HttpResponse('메일을 전송했습니다!')
     except Exception as ex:
         print('HEY!', ex)
-    return redirect('friend_main')
+        return redirect('friend_main')
 
 
 # 에러 메세지 내는 페이지
