@@ -12,6 +12,14 @@ class SigninForm(forms.ModelForm):
     class Meta:
         model = Account
         fields = ['username', 'password']
+        widgets = {
+            'username': forms.TextInput(
+                attrs={'placeholder': '사용자 이름'}
+            ),
+            'password': forms.PasswordInput(
+                attrs={'placeholder': '비밀번호'}
+            )
+        }
 
 
 class PostForm(forms.ModelForm):
