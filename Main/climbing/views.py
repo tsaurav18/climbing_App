@@ -74,18 +74,20 @@ def postlist_main(request):
 def postlist_detail(request, pk):
     post = get_object_or_404(PostMountain, pk=pk)
     now_user = Account.objects.get(username=request.user.get_username())
-    print(post.user_id.id)
-    print(now_user)
     return render(request, 'list_detail_view.html', {'post': post, 'now_user': now_user})
 
 
 # 산 글쓰기 페이지
 def postlist_post(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             temp = form.save(commit=False)
             temp.user_id = Account.objects.get(username=request.user.get_username())
+            temp.save()
+            imgpath = '.'+PostMountain.objects.get(id=temp.id).img.url
+            temp.imgpath = upload_file_gcs(imgpath, 'Postimgs/test.jpg')
+            print('이미지 업로드 성공')
             temp.save()
             return redirect('list_main')
         else:
@@ -120,19 +122,30 @@ def postlist_delete(request, pk):
     return redirect('list_main')
 
 
-# # gcs에 파일 업로드 및 linkurl 반환
-# def upload_blob(bucket_name, source_file_name, destination_blob_name):
-#     storage_client = storage.Client()
-#     bucket = storage_client.bucket(bucket_name)
-#     blob = bucket.blob(destination_blob_name)
-#
-#     blob.upload_from_filename(source_file_name)
-#
-#     print(
-#         "File {} uploaded to {}.".format(
-#             source_file_name, destination_blob_name
-#         )
-#     )
+# gcs에 파일 업로드 및 linkurl 반환
+def upload_file_gcs(img_dir, destination_blob_name, bucket_name='climbing_storage'):
+    # file_name : 업로드할 파일명
+    # destination_blob_name : 업로드될 경로와 파일명
+    # bucket_name : 업로드할 버킷명
+
+    file_name = open(img_dir, 'rb')  # 업로드할 이미지의 파일 객체
+
+    try:
+        # upload img
+        storage_client = storage.Client()
+        bucket = storage_client.get_bucket(bucket_name)
+        blob = bucket.blob(destination_blob_name)
+        blob.upload_from_file(file_name)
+    except Exception as ex:
+        print('upload :', ex)
+
+    try:
+        # get url from gcs
+        bucket_get = storage_client.bucket(bucket_name)
+        blob_get = bucket_get.blob(destination_blob_name)
+        return blob_get.public_url
+    except Exception as ex:
+        print('get url : ', ex)
 
 
 # 등산 기록 페이지
