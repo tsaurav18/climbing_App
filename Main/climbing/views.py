@@ -43,8 +43,6 @@ def signin(request):
 
 
 def logout(request):
-    if request.session['user']:
-        del(request.session['user'])
     return redirect('/')
 
 
