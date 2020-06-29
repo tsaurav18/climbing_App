@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 
 <head>
@@ -9,13 +10,13 @@
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="../static/css/mylist_detail.css">
+	<link rel="stylesheet" href="{% static 'css/mylist_detail.css' %}">
 
     <style type="text/css">
         .star-input>.input,
 .star-input>.input>label:hover,
 .star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background-image:url('../static/img/grade_img.png');}
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background-image:url('{% static 'img/grade_img.png' %}');}
 .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;;line-height:30px;}
 .star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
 .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
@@ -41,7 +42,7 @@
 </head>
 
 <body>
-    <div class="container-box" style="  background-image: url('../static/img/san1-2.jpg');">
+    <div class="container-box" style="  background-image: url('{% static 'img/san1-2.JPG' %}');">
         <div class="header">
             <span><i class='fas fa-angle-left' onclick="goBack()"
                     style='font-size:70px; float:left; color:black; inline-block;line-height:80px;'></i></span>
@@ -114,9 +115,9 @@
 
 </html>
 
-<script src="../static/js/jquery-1.12.0.min.js"></script>
-<script src="../static/js/jquery-1.11.3.min.js"> </script>
-<script src="../static/js/star.js"> </script>
+<script src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
+<script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'js/star.js' %}"> </script>
 <script>
    goBack=()=>{
         window.history.back();

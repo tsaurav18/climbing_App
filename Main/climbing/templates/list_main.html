@@ -38,13 +38,13 @@
     </div>
     <div class="page-box">
         <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-            </ul>
+{#            <ul class="pagination">#}
+{#                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">1</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">2</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#">3</a></li>#}
+{#                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>#}
+{#            </ul>#}
         </nav>
     </div>
     </div>
@@ -61,7 +61,8 @@
 </body>
 
 </html>
-<script src="../static/js/jquery-1.12.0.min.js"></script>
+{#<script src="../static/js/jquery-1.12.0.min.js"></script>#}
+<script src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
 <script>
    goBack=()=>{
         window.history.back();

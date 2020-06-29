@@ -23,42 +23,45 @@
         <button class="button start-btn">등산 시작</button>
         <!-- display popup-box content -->
         <div class="modal" id="modal-wrapper">
- <span class="close" id = "close_modal"title="close popup">&times;</span>
-{#            <form action="action.jsp" method="post" id="popup-form" class="animate modal-content">#}
-{#                <span class="close" id = "close_modal"title="close popup">&times;</span>#}
-{#                <input type="text" id ="mountain_name"class="form-input1" placeholder="산 이름" />#}
-{#                <input type="text" id ="course_name"class="form-input1" placeholder="코스 이름" />#}
-{#                <input type="text" id ="taken_time"class="form-input1" placeholder="소요 시간" />#}
-{#                <div id="start" class="post-btn1">Start</div>#}
-{#                <div id="modal-cancel-btn" class="post-btn2">cancel</div>#}
-
             <form method="POST" enctype="multipart/form-data" id="popup-form" class="animate model-contnet">
-                    {% csrf_token %}
-                    {{ form2.media }}
-                    {% for f in form2 %}
-                        {{ f }}
-                    {% endfor %}
-                    <div id="start" class="post-btn1">Start</div>
-                    <div id="modal-cancel-btn" class="post-btn2">cancel</div>
+             <span class="close" id = "close_modal"title="close popup">&times;</span>
+    {#            <form action="action.jsp" method="post" id="popup-form" class="animate modal-content">#}
+    {#                <span class="close" id = "close_modal"title="close popup">&times;</span>#}
+    {#                <input type="text" id ="mountain_name"class="form-input1" placeholder="산 이름" />#}
+    {#                <input type="text" id ="course_name"class="form-input1" placeholder="코스 이름" />#}
+    {#                <input type="text" id ="taken_time"class="form-input1" placeholder="소요 시간" />#}
+    {#                <div id="start" class="post-btn1">Start</div>#}
+    {#                <div id="modal-cancel-btn" class="post-btn2">cancel</div>#}
+
+{#                <form method="POST" enctype="multipart/form-data" id="popup-form" class="animate model-contnet">#}
+                        {% csrf_token %}
+                        {{ form2.media }}
+                        {% for f in form2 %}
+                            {{ f }}
+                        {% endfor %}
+                        <div id="start" class="post-btn1">Start</div>
+                        <div id="modal-cancel-btn" class="post-btn2">cancel</div>
+{#                </form>#}
+            </div>
+            <!-- toggler comeout from bottom -->
+            <div class="bottom-container animate-btn">
+                <span class="close1 ">&times;</span>
+                <!-- <div class="time adjust "></div> -->
+                <section class="buttons-wrapper" id="stopWatch">
+                    <p id="timer"> 00:00:00 </p>
+                    <div class="bottom-start buttons1" id="start1" onclick="startMyTime()"> <i class="fa fa-play-circle"
+                            style="font-size: 90px;"></i> </div>
+                    <div class="bottom-pause buttons1" id="pause1" onclick="pauseMyTime()"> <i class="fa fa-pause-circle"
+                            style="font-size: 90px;"></i></div>
+                    <div class="bottom-resume buttons1" id="resume1" onclick="resumeMyTime()"><img src={% static 'img/resume.png' %}></div>
+                    <div class="bottom-stop buttons1" id="stop1" style="font-size: 90px;"> <i class="fa fa-stop-circle"></i>
+                    </div>
+                    <p id="fulltime"> </p>
+                </section>
+            </div>
+
             </form>
         </div>
-        <!-- toggler comeout from bottom -->
-        <div class="bottom-container animate-btn">
-            <span class="close1 ">&times;</span>
-            <!-- <div class="time adjust "></div> -->
-            <section class="buttons-wrapper" id="stopWatch">
-                <p id="timer"> 00:00:00 </p>
-                <div class="bottom-start buttons1" id="start1" onclick="startMyTime()"> <i class="fa fa-play-circle"
-                        style="font-size: 90px;"></i> </div>
-                <div class="bottom-pause buttons1" id="pause1" onclick="pauseMyTime()"> <i class="fa fa-pause-circle"
-                        style="font-size: 90px;"></i></div>
-                <div class="bottom-resume buttons1" id="resume1" onclick="resumeMyTime()"><img src={% static 'img/resume.png' %}></div>
-                <div class="bottom-stop buttons1" id="stop1" style="font-size: 90px;"> <i class="fa fa-stop-circle"></i>
-                </div>
-                <p id="fulltime"> </p>
-            </section>
-        </div>
-    </div>
     <div class="old-record">기존 기록 이력</div>
         <div class="form-tag">
             <form method="POST" enctype="multipart/form-data">
