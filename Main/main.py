@@ -1,2 +1,2 @@
-from API.wsgi import application
+from Main.wsgi import application
 app = application
