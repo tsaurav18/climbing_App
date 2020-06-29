@@ -1,6 +1,7 @@
-*{}
-body {
+* {
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 a {
 text-decoration: none;
@@ -10,15 +11,36 @@ color: #000;
     float: left;
     width: 100%;
 } 
-#header-area{
-    height: 8.5%;
-    background-color: white;
-    border-bottom: 1px solid #DDD;
+.container-box {
+
+    height: 10%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
 }
-#header-area h3{
-    margin: 3px 0px;
-    text-align: center;
-    color: #000;
+
+.header {
+    padding: 0 10px;
+    height: 75px;
+}
+
+.logo {
+    color: black;
+    font-size: 38px;
+    font-family: verdana;
+    line-height: 80px;
+    padding-left: 30%;
+    font-weight: 500;
+    opacity: 1;
+}
+.container-rateme {
+    float: left;
+    width: 185px;
+    margin: 0 auto;
+    padding: 0;
+
 }
 .box1{
     width: 50%;

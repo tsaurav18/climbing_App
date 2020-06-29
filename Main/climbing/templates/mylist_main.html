@@ -1,33 +1,33 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>CLIMBLING</title>
-	<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0" charset="utf-8">
-<link rel="stylesheet" href="../static/css/mylist_main.css">
+    <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0" charset="utf-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/mylist_main.css">
 </head>	
 <body>
-	<div id="header-area" class="section">
-		<img src="../static/img/back.jpg" width="40" height="40">
-		<div class="box1">
-			<a href="main.html">
-				<center><h3>CLIMBING</h3></center>
+	<div class="container-box">
+        <div class="header">
+            <span><i class='fas fa-angle-left' onclick="goBack()"
+                    style='font-size:70px; float:left; color:black; inline-block;line-height:80px;'></i></span>
+            <h1 class="logo">Climbing</h1>
+        </div>
+    </div>
 
-			</a>
-
-		</div>
-		
-		</div>
-	</div>
-	<div class="grid1" onclick="goBack()">
+	<div class="grid1">
 	<div class="image"  style="background-image:url('../static/img/view.jpg'); 
 	"></div>
 	</div>
 	<div id="content-area">
-		<div class="grid"> 
+		<div class="grid">
     			<div class="left"><h3>산 이름</h3></div>
     			<div class="right"><h3>소요시간</h3></div>
     	</div>
-        {% for list in mylist %}
         <div class="grid">
     		<a href="{% url 'mylist_detail' pk=list.pk %}">
     			<div class="grid">
@@ -36,13 +36,70 @@
     			</div>
     		</a>
     	</div>
-        {% endfor %}
-	</div>
-
-	
-
-	<div id="footer-area" class="section">
-		Copyright: Climbing 2018
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
+        <div class="grid">
+    		<a href="{% url 'mylist_detail' pk=list.pk %}">
+    			<div class="grid">
+    				<div class="left"><h3>{{ list.m_name }}</h3></div>
+    				<div class="right"><h3>{{ list.time }}</h3></div>
+    			</div>
+    		</a>
+    	</div>
 	</div>
 
 </body>
