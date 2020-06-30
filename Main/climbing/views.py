@@ -164,6 +164,7 @@ def record(request):
             get_avg_score(request.user.get_username())
             return redirect('mylist_main')
         else:
+            print(request.POST)
             return redirect('error')
     else:
         form = RecordForm()

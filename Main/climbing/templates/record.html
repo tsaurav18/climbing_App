@@ -35,10 +35,11 @@
 
 {#                <form method="POST" enctype="multipart/form-data" id="popup-form" class="animate model-contnet">#}
                         {% csrf_token %}
-                        {{ form2.media }}
-                        {% for f in form2 %}
-                            {{ f }}
-                        {% endfor %}
+{#                        {{ form2.media }}#}
+{#                        {% for f in form2 %}#}
+{#                            {{ f }}#}
+{#                        {% endfor %}#}
+                            {{ form2 }}
                         <div id="start" class="post-btn1">Start</div>
                         <div id="modal-cancel-btn" class="post-btn2">cancel</div>
 {#                </form>#}
@@ -57,6 +58,7 @@
                     <div class="bottom-stop buttons1" id="stop1" style="font-size: 90px;"> <i class="fa fa-stop-circle"></i>
                     </div>
                     <p id="fulltime"> </p>
+                    <button type="submit">저장</button>
                 </section>
             </div>
 
