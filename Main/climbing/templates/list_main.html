@@ -25,10 +25,17 @@
         </div>
     </div>
 
-    <div class="img-container" style="background-image: url('{{ recomend_mountain.imgpath }}');">
-        <div class="text-2"><a href="{% url 'list_detail' pk=recomend_mountain.pk %}">Recommend for you</a></div>
+{#    <div class="img-container" style="background-image: url('{{ recomend_mountain.imgpath }}');">#}
+{#        <div class="text-2"><a href="{% url 'list_detail' pk=recomend_mountain.pk %}">Recommend for you</a></div>#}
+{#    </div>#}
+    {% for temp in recomend_mountain %}
+        {% if user_score == temp.star %}
+            <div class="img-container" style="background-image: url('{{ temp.img }}');">
+                <div class="text-2"><a href="{% url 'list_detail' pk=temp.pk %}">Recommend for you</a></div>
+            </div>
+        {% endif %}
+    {% endfor %}
 
-    </div>
     <div class="list">
         <ul>
             {% for p in others %}

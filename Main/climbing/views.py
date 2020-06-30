@@ -58,12 +58,14 @@ def main(request):
 # 산 리스트 메인페이지
 def postlist_main(request):
     first_posts = PostMountain.objects.get(id=1)
-    second_posts = PostMountain.objects.get(id=2)
+    recomend_mountain = PostMountain.objects.order_by('date')[1:6]
     others = PostMountain.objects.order_by('date')
+    user_score = Account.objects.get(username=request.user.get_username()).score
     context = {
         'mountain_of_month': first_posts,
-        'recomend_mountain': second_posts,
-        'others': others[2::-1]
+        'recomend_mountain': recomend_mountain,
+        'others': others[6::-1],
+        'user_score': user_score,
     }
     return render(request, 'list_main.html', context)
 
@@ -154,6 +156,12 @@ def record(request):
             temp = form.save(commit=False)
             temp.user_id = Account.objects.get(username=request.user.get_username())
             temp.save()
+
+            mylist = MyList.objects.get(id=temp.id)
+            mylist.score = get_score(mylist.m_name, mylist.time)
+            mylist.save()
+
+            get_avg_score(request.user.get_username())
             return redirect('mylist_main')
         else:
             return redirect('error')
@@ -161,6 +169,42 @@ def record(request):
         form = RecordForm()
         form2 = Record2Form()
         return render(request, 'record.html', {'form': form, 'form2': form2})
+
+
+def get_score(m_name, time):
+    try:
+        avg_time = int(Mountains.objects.get(name=m_name).avg_time)
+        hour = int(time[:2])
+        minute = int(time[3:5])
+        taketime = minute + hour * 60
+        gap = abs(avg_time-taketime)
+        if gap < 10:
+            score = 5
+        elif gap < 30:
+            score = 4
+        elif gap < 50:
+            score = 3
+        elif gap < 70:
+            score = 2
+        else:
+            score = 1
+    except Exception as ex:
+        print(ex)
+        return 1
+    return score
+
+
+def get_avg_score(user):
+    try:
+        now_id = Account.objects.get(username=user)
+        user_data = MyList.objects.filter(user_id=now_id.id)
+        temp = []
+        for u in user_data:
+            temp.append(u.score)
+        now_id.score = sum(temp)/len(temp)
+        now_id.save()
+    except Exception as ex:
+        print(ex)
 
 
 # 개인 등산 목록 페이지

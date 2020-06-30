@@ -54,7 +54,7 @@ class RecordForm(forms.ModelForm):
                 attrs={'class': 'form-input1', 'placeholder': '코스 이름'}
             ),
             'time': forms.TextInput(
-                attrs={'class': 'form-input1', 'placeholder': '소요 시간'}
+                attrs={'class': 'form-input1', 'placeholder': '00:00:00'}
             ),
         }
 

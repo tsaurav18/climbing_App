@@ -60,7 +60,21 @@
 					<h2>등급:</h2>
 				</div>
                 <div class="box">
-					<h4> . </h4>
+					<h4>
+                        {% if mine.score == 5 %}
+                            S
+                        {% elif mine.score == 4 %}
+                            A
+                        {% elif mine.score == 3 %}
+                            B
+                        {% elif mine.score == 2 %}
+                            C
+                        {% elif mine.score == 1 %}
+                            D
+                        {% else %}
+                            계산되지 않았습니다.
+                        {% endif %}
+                    </h4>
 				</div>
             </div>
             <div class="grid">
