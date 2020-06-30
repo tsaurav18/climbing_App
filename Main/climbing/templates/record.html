@@ -57,6 +57,8 @@
                     <div class="bottom-stop buttons1" id="stop1" style="font-size: 90px;"> <i class="fa fa-stop-circle"></i>
                     </div>
                     <p id="fulltime"> </p>
+                    {{ fulltime|json_script:"fulltime" }}
+
                 </section>
             </div>
 
@@ -81,6 +83,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <script src="../static/js/jquery-1.12.0.min.js"></script>
+<script>
+    const fulltime = JSON.parse(document.getElementById('fulltime').textContent);
+    console.log(fulltime);
+</script>
 <script>
    goBack=()=>{
         window.history.back();
