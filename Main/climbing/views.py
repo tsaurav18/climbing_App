@@ -172,6 +172,14 @@ def record(request):
         return render(request, 'record.html', {'form': form, 'form2': form2})
 
 
+# def record_ajax(request):
+#     if request.is_ajax():
+#         m_name =
+#         course =
+#         time =
+
+
+
 def get_score(m_name, time):
     try:
         avg_time = int(Mountains.objects.get(name=m_name).avg_time)
