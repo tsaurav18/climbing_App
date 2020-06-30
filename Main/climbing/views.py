@@ -164,11 +164,20 @@ def record(request):
             get_avg_score(request.user.get_username())
             return redirect('mylist_main')
         else:
+            print(request.POST)
             return redirect('error')
     else:
         form = RecordForm()
         form2 = Record2Form()
         return render(request, 'record.html', {'form': form, 'form2': form2})
+
+
+# def record_ajax(request):
+#     if request.is_ajax():
+#         m_name =
+#         course =
+#         time =
+
 
 
 def get_score(m_name, time):

@@ -62,13 +62,16 @@ class RecordForm(forms.ModelForm):
 class Record2Form(forms.ModelForm):
     class Meta:
         model = MyList
-        fields = ['m_name', 'course']
+        fields = ['m_name', 'course', 'time']
         widgets = {
             'm_name' : forms.TextInput(
                 attrs={'class':'form-input1', 'placeholder': '산 이름'}
             ),
             'course': forms.TextInput(
                 attrs={'class': 'form-input1', 'placeholder': '코스 이름'}
+            ),
+            'time': forms.HiddenInput(
+                attrs={'class': 'form-input1', 'placeholder': '00:00:00'}
             )
         }
 

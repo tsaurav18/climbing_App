@@ -14,7 +14,7 @@
    
 <body>
 
-    <div class="container-box " style="background-image: url('{{ mountain_of_month.imgpath }}');">
+    <div class="container-box " style="background-image: url('{{ mountain_of_month.img.url }}');">
         <div class="header">
             <span><a href="{% url 'main' %}"><i class='fas fa-angle-left'
                                                 style='font-size:70px; float:left; color:black;display:inline-block;line-height:80px;'></i></a></span>
@@ -30,7 +30,7 @@
 {#    </div>#}
     {% for temp in recomend_mountain %}
         {% if user_score == temp.star %}
-            <div class="img-container" style="background-image: url('{{ temp.img }}');">
+            <div class="img-container" style="background-image: url('{{ temp.img.url }}');">
                 <div class="text-2"><a href="{% url 'list_detail' pk=temp.pk %}">Recommend for you</a></div>
             </div>
         {% endif %}
