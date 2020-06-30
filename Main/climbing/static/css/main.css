@@ -31,14 +31,16 @@ body {
     font-weight: 500;
 }
 .userBox{
-    background-color:rgb(232, 225, 227);
-    width: 142px;
-    height:49px;
+      
+    width: 100%;
+    height: 109px;
     overflow: hidden;
-    float: right; 
-    display:none
-    
-}
+    float: right;
+    display: none;
+    position: absolute;
+        
+    }
+   
    
 .logout-btn{
     border-bottom: 1px solid grey;
@@ -74,11 +76,11 @@ body {
 
 .text {
     position: relative;
-   
     color: white;
-    font-size: 27px;
+    font-size: 21px;
     text-align: center;
-    top: 187px;
+   
+    top: 105px;
 
 
 }
