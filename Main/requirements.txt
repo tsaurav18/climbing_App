@@ -14,7 +14,7 @@ django-filter==2.2.0
 django-relativedelta==1.1.1
 django-rest-knox==4.1.0
 django-storages==1.9.1
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 Flask==1.1.2
 Flask-SQLAlchemy==2.4.3
 future==0.18.2
